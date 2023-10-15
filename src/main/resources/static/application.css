@@ -1,0 +1,9 @@
+h1 {
+    font-family: monospace;
+}
+table, th, td {
+    border: 1px solid;
+}
+.buddyinfo {
+    color: darkred;
+}
