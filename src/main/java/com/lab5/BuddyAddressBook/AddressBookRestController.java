@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value="/addressbook/api")
+@RequestMapping(value="/api")
 public class AddressBookRestController {
     @Autowired
     private AddressBookRepository addressBookRepository;

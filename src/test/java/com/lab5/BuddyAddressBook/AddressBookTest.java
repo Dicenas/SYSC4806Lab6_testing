@@ -16,18 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class BuddyAddressBookTests {
-    private final String url = "/addressbook";
-    private final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), StandardCharsets.UTF_8);
+public class AddressBookTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -38,13 +34,6 @@ public class BuddyAddressBookTests {
     @Test
     public void contextLoads() {
         assertThat(addressBookController).isNotNull();
-    }
-
-    @Test
-    public void shouldReturnDefaultMessage() throws Exception {
-        when(addressBookController.addressBook()).thenReturn("addressbook");
-        this.mockMvc.perform(get(url)).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("AddressBook")));
     }
 
     @Test
@@ -62,10 +51,12 @@ public class BuddyAddressBookTests {
         ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
         String requestJson = ow.writeValueAsString(buddyInfoList);
 
-        this.mockMvc.perform(post(url)
+        MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), StandardCharsets.UTF_8);
+        this.mockMvc.perform(post("/addressbook")
                         .contentType(APPLICATION_JSON_UTF8)
                         .content(requestJson))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
+
 }

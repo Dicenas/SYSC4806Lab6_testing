@@ -1,10 +1,26 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
-        <title>Getting Started: Serving Web Content</title>
+        <title>Home Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/application.css}"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>Hello, World</h1>
+        <div class="container">
+            <div class="hero-unit">
+                <h1>Buddy AddressBook Home Page</h1>
+                <p>
+                    Welcome to the Buddy AddressBook application! <br>
+                    Get started quickly by clicking continue.
+                </p>
+                <p>
+                    <a href="/addressbook" th:href="@{/addressbook}" class="btn btn-large btn-success">Continue</a>
+                </p>
+            </div>
+            <footer>
+                <div>&copy; 2023 trong0dn</div>
+            </footer>
+        </div>
     </body>
 </html>

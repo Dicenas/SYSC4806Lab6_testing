@@ -4,16 +4,25 @@
 package com.lab5.BuddyAddressBook;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * This class maintains the collection of the BuddyInfo object.
  * @author Trong Nguyen
  */
+@Getter
 @Entity
 public class AddressBook {
 
+    /**
+     * -- GETTER --
+     *  Gets the id of this AddressBook. The persistence provider should
+     *  autogenerate a unique id for new AddressBook objects.
+     *
+     */
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
@@ -24,23 +33,12 @@ public class AddressBook {
     /**
      * Creates a new instance of AddressBook.
      */
-    public AddressBook() { }
-
-    /**
-     * Gets the id of this AddressBook. The persistence provider should
-     * autogenerate a unique id for new AddressBook objects.
-     * @return the id
-     */
-    public Long getId() {
-        return id;
+    public AddressBook() {
+        this.buddies = new ArrayList<>();
     }
 
     public void setBuddies(List<BuddyInfo> buddies) {
         this.buddies = buddies;
-    }
-
-    public List<BuddyInfo> getBuddies() {
-        return buddies;
     }
 
     /**

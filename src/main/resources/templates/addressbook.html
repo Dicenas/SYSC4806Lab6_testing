@@ -1,29 +1,23 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
-        <title>AddressBook</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" th:href="@{/application.css}"/>
+        <title>AddressBook Application</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/application.css}"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>AddressBook</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="buddy : ${addressBook}" class="buddyinfo">
-                    <td th:text="${buddy.id}"></td>
-                    <td th:text="${buddy.name}"></td>
-                    <td th:text="${buddy.phoneNumber}"></td>
-                    <td th:text="${buddy.address}"></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="container">
+            <h1>Hello, Welcome to the AddressBook Application</h1>
+            <p><a href="/addaddressbook" th:href="@{/addaddressbook}">Add AddressBook</a></p>
+            <div class="container-fluid hero-unit">
+                <h2>Available AddressBooks</h2>
+                <ul class="list-group">
+                    <li class="list-group-item" th:each="addressbook : ${AddressBookList}">
+                        <p><a href="/showaddressbook" th:href="@{/showaddressbook(id=${addressbook.id})}">AddressBook#<span th:text="${addressbook.id}"></span></a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </body>
 </html>
