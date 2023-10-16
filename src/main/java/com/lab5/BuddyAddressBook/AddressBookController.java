@@ -67,7 +67,7 @@ public class AddressBookController {
     public String removeBuddy(@RequestParam Long id, Model model){
         BuddyInfoDTO buddyDTO = new BuddyInfoDTO(id);
         model.addAttribute("BuddyDTO", buddyDTO);
-        return "removebuddyinfo";
+        return "removeBuddyInfo";
     }
 
     @PostMapping("/createbuddy")
@@ -94,7 +94,7 @@ public class AddressBookController {
             addressBook.addBuddy(buddy);
             addressBookRepository.save(addressBook);
             redirectAttributes.addAttribute("id", addressBook.getId());
-            return "redirect:displayaddressbook";
+            return "redirect:showaddressbook";
         }
         else {
             return "redirect:addressbook";

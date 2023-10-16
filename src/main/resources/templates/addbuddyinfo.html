@@ -10,7 +10,7 @@
         <div class="container">
             <h1>Add BuddyInfo</h1>
             <div class="form-group">
-                <form action="#" th:action="@{/createdbuddy}" th:object="${BuddyDTO}" method="post">
+                <form action="#" th:action="@{/createbuddy}" th:object="${BuddyDTO}" method="post">
                     <label>AddressBookId: <input type="text" th:field="*{addressBookId}" value="${AddressId}" readonly/></label><br>
                     <label>Name: <input type="text" th:field="*{buddy.name}" /></label><br>
                     <label>Number: <input type="text" th:field="*{buddy.phoneNumber}" /></label><br>

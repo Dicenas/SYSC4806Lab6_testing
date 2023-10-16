@@ -10,7 +10,7 @@
         <div class="container">
             <h1>Remove BuddyInfo</h1>
             <div class="form-group">
-                <form action="#" th:action="@{/deletedbuddy}" th:object="${BuddyDTO}" method="post">
+                <form action="#" th:action="@{/deletebuddy}" th:object="${BuddyDTO}" method="post">
                     <label>AddressBookId: <input type="text" th:field="*{addressBookId}" value="${AddressId}" readonly/></label><br>
                     <label>BuddyId#: <input type="text" th:field="*{buddyId}" /></label><br>
                     <input class="btn btn-large btn-primary" type="submit" value="Submit" />
