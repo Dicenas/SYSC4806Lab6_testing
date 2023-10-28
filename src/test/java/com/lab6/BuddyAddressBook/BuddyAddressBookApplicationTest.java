@@ -79,4 +79,5 @@ public class BuddyAddressBookApplicationTest {
         this.mockMvc.perform(get("/showaddressbook?id=1")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(not(containsString("Anna"))));
     }
+
 }
