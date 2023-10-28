@@ -1,4 +1,4 @@
-package com.lab5.BuddyAddressBook;
+package com.lab6.BuddyAddressBook;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,4 +27,5 @@ public class BuddyInfoRestController {
         buddyInfoRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
 }

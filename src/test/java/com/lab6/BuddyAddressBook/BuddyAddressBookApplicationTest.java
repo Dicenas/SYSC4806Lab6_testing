@@ -1,4 +1,4 @@
-package com.lab5.BuddyAddressBook;
+package com.lab6.BuddyAddressBook;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,5 @@
-package com.lab5.BuddyAddressBook;
+package com.lab6.BuddyAddressBook;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,12 +11,15 @@ import java.util.List;
 @SpringBootApplication
 public class BuddyAddressBookApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(BuddyAddressBookApplication.class);
-
 	public static void main(String[] args) {
 		SpringApplication.run(BuddyAddressBookApplication.class, args);
 	}
 
+	/**
+	 * Populate AddressBook with initial buddies.
+	 * @param repository	AddressBookRepository
+	 * @return	CommandLineRunner
+	 */
 	@Bean
 	public CommandLineRunner addressable(AddressBookRepository repository) {
 		return (args) -> {
@@ -34,4 +35,5 @@ public class BuddyAddressBookApplication {
 			repository.save(buddies);
 		};
 	}
+
 }

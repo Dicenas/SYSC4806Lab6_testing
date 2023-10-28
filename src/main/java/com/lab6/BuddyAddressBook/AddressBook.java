@@ -1,7 +1,4 @@
-// STUDENT NAME: Trong Nguyen
-// STUDENT NUMBER: 100848232
-
-package com.lab5.BuddyAddressBook;
+package com.lab6.BuddyAddressBook;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,7 +8,7 @@ import java.util.List;
 
 /**
  * This class maintains the collection of the BuddyInfo object.
- * @author Trong Nguyen
+ * @author trong0dn
  */
 @Getter
 @Entity
@@ -37,6 +34,10 @@ public class AddressBook {
         this.buddies = new ArrayList<>();
     }
 
+    /**
+     * Set BuddyInfo object.
+     * @param buddies   List<BuddyInfo> object
+     */
     public void setBuddies(List<BuddyInfo> buddies) {
         this.buddies = buddies;
     }

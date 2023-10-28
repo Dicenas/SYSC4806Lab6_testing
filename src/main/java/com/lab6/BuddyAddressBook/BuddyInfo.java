@@ -1,22 +1,45 @@
-// STUDENT NAME: Trong Nguyen
-// STUDENT NUMBER: 100848232
-
-package com.lab5.BuddyAddressBook;
+package com.lab6.BuddyAddressBook;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 /**
  * This class contains information about a buddy.
- * @author Trong Nguyen
+ * @author trong0dn
  */
+@Getter
 @Entity
 public class BuddyInfo {
 
+    /**
+     * -- GETTER --
+     *  Gets the id of this BuddyInfo. The persistence provider should
+     *  autogenerate a unique id for new BuddyInfo objects.
+     *
+     */
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+    /**
+     * -- GETTER --
+     *  Get the buddy's name.
+     *
+     */
     private String name;
+
+    /**
+     * -- GETTER --
+     *  Get the buddy's address.
+     *
+     */
     private String address;
+
+    /**
+     * -- GETTER --
+     *  Get the buddy's phone number.
+     *
+     */
     private String phoneNumber;
 
     /**
@@ -34,39 +57,6 @@ public class BuddyInfo {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
-    }
-
-    /**
-     * Gets the id of this BuddyInfo. The persistence provider should
-     * autogenerate a unique id for new BuddyInfo objects.
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * Get the buddy's name.
-     * @return      String, buddy's name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Get the buddy's address.
-     * @return      String, buddy's address
-     */
-    public String getAddress() {
-        return address;
-    }
-
-    /**
-     * Get the buddy's phone number.
-     * @return      String, buddy's phone number
-     */
-    public String getPhoneNumber() {
-        return phoneNumber;
     }
 
     /**

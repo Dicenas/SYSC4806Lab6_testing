@@ -1,4 +1,4 @@
-package com.lab5.BuddyAddressBook;
+package com.lab6.BuddyAddressBook;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @Controller
 public class AddressBookController {
+
     @Autowired
     private AddressBookRepository addressBookRepository;
 
@@ -85,6 +86,15 @@ public class AddressBookController {
         }
     }
 
+    /**
+     * Create buddy manually for unit testing.
+     * @param id Long, buddy id number
+     * @param name String, buddy name
+     * @param phoneNumber String, buddy phone number
+     * @param address String, buddy address
+     * @param redirectAttributes RedirectAttribute
+     * @return String, post mapping
+     */
     @PostMapping("/createbuddyentry")
     public String createBuddy(@RequestParam Long id, @RequestParam String name, @RequestParam String phoneNumber, @RequestParam String address, RedirectAttributes redirectAttributes) {
         Optional<AddressBook> addressBookOptional = addressBookRepository.findById(id);
@@ -105,26 +115,28 @@ public class AddressBookController {
     public String deleteBuddy(@ModelAttribute("BuddyDTO") BuddyInfoDTO buddyDTO, RedirectAttributes redirectAttributes) {
         Optional<AddressBook> addressBookOptional = addressBookRepository.findById(buddyDTO.getAddressBookId());
         Optional<BuddyInfo> buddyInfoOptional = buddyInfoRepository.findById(buddyDTO.getBuddyId());
-        if (addressBookOptional.isPresent() && buddyInfoOptional.isPresent()){
+        return getString(redirectAttributes, addressBookOptional, buddyInfoOptional);
+    }
+
+    /**
+     * Delete buddy manually for unit testing.
+     * @param id Long, buddy id number
+     * @param name String, buddy name
+     * @param redirectAttributes RedirectAttribute
+     * @return String, post mapping
+     */
+    @PostMapping("/deletebuddyentry")
+    public String deleteBuddy(@RequestParam Long id, @RequestParam String name, RedirectAttributes redirectAttributes) {
+        Optional<AddressBook> addressBookOptional = addressBookRepository.findById(id);
+        Optional<BuddyInfo> buddyInfoOptional = buddyInfoRepository.findByName(name);
+        return getString(redirectAttributes, addressBookOptional, buddyInfoOptional);
+    }
+
+    private String getString(RedirectAttributes redirectAttributes, Optional<AddressBook> addressBookOptional, Optional<BuddyInfo> buddyInfoOptional) {
+        if (addressBookOptional.isPresent() && buddyInfoOptional.isPresent()) {
             AddressBook addressBook = addressBookOptional.get();
             BuddyInfo buddyInfo = buddyInfoOptional.get();
             addressBook.removeBuddy(buddyInfo);
-            addressBookRepository.save(addressBook);
-            redirectAttributes.addAttribute("id", addressBook.getId());
-            return "redirect:showaddressbook";
-        } else {
-            return "redirect:addressbook";
-        }
-    }
-
-    @PostMapping("/deletebuddyentry")
-    public String deletebuddy(@RequestParam Long id, @RequestParam String name, RedirectAttributes redirectAttributes) {
-        Optional<AddressBook> addressBookOptional = addressBookRepository.findById(id);
-        Optional<BuddyInfo> buddyInfoOptional = buddyInfoRepository.findByName(name);
-        if (addressBookOptional.isPresent() && buddyInfoOptional.isPresent()) {
-            AddressBook addressBook = addressBookOptional.get();
-            BuddyInfo buddy = buddyInfoOptional.get();
-            addressBook.removeBuddy(buddy);
             addressBookRepository.save(addressBook);
             redirectAttributes.addAttribute("id", addressBook.getId());
             return "redirect:showaddressbook";

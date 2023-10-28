@@ -8,7 +8,7 @@
 		<version>3.1.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.lab5</groupId>
+	<groupId>com.lab6</groupId>
 	<artifactId>BuddyAddressBook</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>BuddyAddressBook</name>
@@ -104,7 +104,7 @@
 							</descriptorRefs>
 							<archive>
 								<manifest>
-									<mainClass>com.lab5.BuddyAddressBook.BuddyAddressBookApplication</mainClass>
+									<mainClass>com.lab6.BuddyAddressBook.BuddyAddressBookApplication</mainClass>
 								</manifest>
 							</archive>
 						</configuration>

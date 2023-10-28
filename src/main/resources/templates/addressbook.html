@@ -14,7 +14,9 @@
                 <h2>Available AddressBooks</h2>
                 <ul class="list-group">
                     <li class="list-group-item" th:each="addressbook : ${AddressBookList}">
-                        <p><a href="/showaddressbook" th:href="@{/showaddressbook(id=${addressbook.id})}">AddressBook#<span th:text="${addressbook.id}"></span></a></p>
+                        <p>
+                            <a href="/showaddressbook" th:href="@{/showaddressbook(id=${addressbook.id})}">AddressBook#<span th:text="${addressbook.id}"></span></a>
+                        </p>
                     </li>
                 </ul>
             </div>

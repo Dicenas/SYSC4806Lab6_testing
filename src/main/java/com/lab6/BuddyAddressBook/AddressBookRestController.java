@@ -1,5 +1,4 @@
-package com.lab5.BuddyAddressBook;
-
+package com.lab6.BuddyAddressBook;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,8 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="/addressbook/api")
 public class AddressBookRestController {
+
     @Autowired
     private AddressBookRepository addressBookRepository;
 
@@ -29,4 +29,5 @@ public class AddressBookRestController {
         addressBookRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
 }

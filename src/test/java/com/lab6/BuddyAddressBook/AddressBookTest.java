@@ -1,4 +1,4 @@
-package com.lab5.BuddyAddressBook;
+package com.lab6.BuddyAddressBook;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;

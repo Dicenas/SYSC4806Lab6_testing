@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: com.lab5.BuddyAddressBook.BuddyAddressBookApplication
+Main-Class: com.lab6.BuddyAddressBook.BuddyAddressBookApplication
