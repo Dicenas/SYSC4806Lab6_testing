@@ -3,48 +3,23 @@ package com.lab6.BuddyAddressBook;
 import jakarta.persistence.*;
 import lombok.Getter;
 
-/**
- * This class contains information about a buddy.
- * @author trong0dn
- */
-@Getter
 @Entity
 public class BuddyInfo {
 
-    /**
-     * -- GETTER --
-     *  Gets the id of this BuddyInfo. The persistence provider should
-     *  autogenerate a unique id for new BuddyInfo objects.
-     *
-     */
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
-    /**
-     * -- GETTER --
-     *  Get the buddy's name.
-     *
-     */
+    public Long getId() {
+        return id;
+    }
+
     private String name;
 
-    /**
-     * -- GETTER --
-     *  Get the buddy's address.
-     *
-     */
     private String address;
 
-    /**
-     * -- GETTER --
-     *  Get the buddy's phone number.
-     *
-     */
     private String phoneNumber;
 
-    /**
-     * Creates a new instance of BuddyInfo.
-     */
     public BuddyInfo() { }
 
     /**

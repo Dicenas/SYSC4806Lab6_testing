@@ -6,23 +6,16 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * This class maintains the collection of the BuddyInfo object.
- * @author trong0dn
- */
-@Getter
 @Entity
 public class AddressBook {
 
-    /**
-     * -- GETTER --
-     *  Gets the id of this AddressBook. The persistence provider should
-     *  autogenerate a unique id for new AddressBook objects.
-     *
-     */
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+    public Long getId() {
+        return id;
+    }
 
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     private List<BuddyInfo> buddies;

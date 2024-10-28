@@ -1,14 +1,14 @@
 package com.lab6.BuddyAddressBook;
 
-import lombok.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
 public class BuddyInfoDTO {
     private Long addressBookId;
     private Long buddyId;
     private BuddyInfo buddy;
+
+    public BuddyInfo getBuddy() {
+        return buddy;
+    }
 
     public BuddyInfoDTO(Long addressBookId) {
         this.addressBookId = addressBookId;
@@ -22,4 +22,11 @@ public class BuddyInfoDTO {
         this.buddyId = buddy.getId();
     }
 
+    public Long getAddressBookId() {
+        return addressBookId;
+    }
+
+    public Long getBuddyId() {
+        return buddyId;
+    }
 }
